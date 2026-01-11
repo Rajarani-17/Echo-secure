@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Safety for Teens</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter","Segoe UI",Arial,sans-serif;
+}
+
+body{
+  background:linear-gradient(180deg,#f6f9ff,#eef3fb);
+  color:#1f2a37;
+  line-height:1.6;
+}
+
+header{
+  background:linear-gradient(135deg,#1f4fd8,#3a7bd5);
+  color:#fff;
+  padding:1.3rem;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+h1{
+  text-align:center;
+  font-size:2.5rem;
+  margin:2.8rem 0 1rem;
+  color:#1f3b64;
+}
+
+h2{
+  text-align:center;
+  margin:2.6rem 0 1rem;
+  color:#1f3b64;
+}
+
+.content{
+  max-width:950px;
+  margin:auto;
+  padding:1rem;
+}
+
+.content p{
+  text-align:center;
+  color:#4b5563;
+  margin-bottom:1.8rem;
+}
+
+/* Smaller cards */
+.box{
+  background:#fff;
+  padding:1.2rem 1.5rem;
+  border-radius:14px;
+  margin:1rem 0;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+}
+
+.tip{border-left:5px solid #f59e0b;}
+.example{border-left:5px solid #3b82f6;}
+.myth{border-left:5px solid #ec4899;}
+.quiz{border-left:5px solid #6366f1;}
+.checklist{border-left:5px solid #10b981;}
+.share{border-left:5px solid #22c55e;}
+
+.video{
+  display:flex;
+  justify-content:center;
+  margin:2rem 0;
+}
+
+iframe{
+  width:100%;
+  max-width:540px;
+  height:300px;
+  border-radius:14px;
+}
+
+button{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  border:none;
+  padding:0.6rem 1.3rem;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:0.6rem;
+}
+
+.quiz input{
+  width:100%;
+  padding:0.6rem;
+  margin-top:0.5rem;
+  border-radius:8px;
+  border:1px solid #c7d2fe;
+}
+
+ul{
+  list-style:none;
+}
+
+ul li{
+  background:#f0f9ff;
+  padding:0.6rem 0.9rem;
+  border-radius:10px;
+  margin:0.5rem 0;
+  font-weight:600;
+}
+
+.home{
+  text-align:center;
+  margin:3rem 0;
+}
+
+.home a{
+  text-decoration:none;
+  font-weight:700;
+  color:#2563eb;
+}
+
+footer{
+  background:linear-gradient(135deg,#0f172a,#020617);
+  color:#cbd5e1;
+  text-align:center;
+  padding:2rem 1rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>CyberSafe – Teens</h2>
+</header>
+
+<h1>Cyber Safety for Teens 👩‍🎓👨‍🎓</h1>
+
+<div class="content">
+<p>Your digital life matters. Learn how to protect your privacy, identity, and reputation online.</p>
+
+<!-- RANDOM TIP -->
+<div class="box tip" id="tipBox"></div>
+
+<h2>❌ Myth vs Fact</h2>
+<div class="box myth" id="mythBox"></div>
+
+<h2>🎥 Watch & Learn</h2>
+<div class="video">
+  <iframe src="C:\Users\yash\Downloads\Safe Web Surfing_ Top Tips for Kids and Teens Online.mp4" allowfullscreen></iframe>
+</div>
+
+<h2>📝 Quick Quiz</h2>
+<div class="box quiz">
+  <p id="quizQuestion"></p>
+  <input type="text" id="quizAnswer" placeholder="Type your answer">
+  <button onclick="checkQuiz()">Submit</button>
+  <p id="quizResult" style="margin-top:0.8rem;font-weight:bold;"></p>
+</div>
+
+<h2>✅ Safety Checklist</h2>
+<div class="box checklist">
+  <ul id="checklist"></ul>
+</div>
+
+<h2>📲 Shareable Safety Tip</h2>
+<div class="box share">
+  <p id="shareText"></p>
+  <button onclick="copyText()">Copy</button>
+</div>
+
+<div class="home">
+  <a href="index.html">GO TO HOME PAGE</a>
+</div>
+</div>
+
+>
+
+<script>
+/* ===== DATA (20+ EACH) ===== */
+
+const tips = [
+"Limit what you share on social media.",
+"Use strong, unique passwords.",
+"Enable two-factor authentication.",
+"Think before clicking links.",
+"Never share OTPs.",
+"Avoid public Wi-Fi for logins.",
+"Review app permissions.",
+"Block suspicious accounts.",
+"Log out on shared devices.",
+"Beware of fake giveaways.",
+"Protect your digital reputation.",
+"Verify sources before sharing news.",
+"Keep your software updated.",
+"Don’t overshare your location.",
+"Report cyberbullying.",
+"Cover your webcam when unused.",
+"Avoid downloading cracked apps.",
+"Check URLs carefully.",
+"Use privacy settings wisely.",
+"Trust your instincts online."
+];
+
+const myths = [
+["Private accounts are fully safe.","Screenshots still exist."],
+["Only celebrities get hacked.","Anyone can be targeted."],
+["Deleted posts disappear forever.","Archives and screenshots remain."],
+["Strong passwords are hard.","Passphrases work."],
+["Free giveaways are legit.","Most are scams."],
+["DMs are always private.","They can be shared."],
+["Online friends are trustworthy.","Some fake identities exist."],
+["VPNs make you invisible.","They don’t prevent all tracking."],
+["Apps don’t collect data.","Many do."],
+["Cyberbullying isn’t serious.","It has real impact."],
+["Wi-Fi is always safe.","Public Wi-Fi is risky."],
+["Phishing is easy to spot.","Some are convincing."],
+["Antivirus is unnecessary.","It adds protection."],
+["All links from friends are safe.","Accounts can be hacked."],
+["Only adults need privacy.","Teens do too."],
+["Online dares are harmless.","They can be dangerous."],
+["Location sharing is fine.","It risks stalking."],
+["Fake profiles are rare.","They are common."],
+["Passwords can be reused.","That increases risk."],
+["Security is boring.","It’s essential."]
+];
+
+const quizzes = [
+{q:"Someone sends a free gift link. What should you do?",a:"ignore"},
+{q:"Is it safe to reuse passwords?",a:"no"},
+{q:"Should you report cyberbullying?",a:"yes"},
+{q:"Are giveaways always real?",a:"no"},
+{q:"Should you enable 2FA?",a:"yes"},
+{q:"Is public Wi-Fi safe for banking?",a:"no"},
+{q:"Can screenshots keep deleted posts?",a:"yes"},
+{q:"Should you verify links?",a:"yes"},
+{q:"Is oversharing risky?",a:"yes"},
+{q:"Should OTPs be shared?",a:"no"},
+{q:"Is privacy important?",a:"yes"},
+{q:"Can fake profiles exist?",a:"yes"},
+{q:"Is blocking suspicious users smart?",a:"yes"},
+{q:"Are cracked apps safe?",a:"no"},
+{q:"Should you update apps?",a:"yes"},
+{q:"Is kindness important online?",a:"yes"},
+{q:"Can DMs be leaked?",a:"yes"},
+{q:"Is your digital reputation permanent?",a:"yes"},
+{q:"Should you trust instincts?",a:"yes"},
+{q:"Is clicking fast a good idea?",a:"no"}
+];
+
+/* ===== RANDOMIZE ===== */
+
+document.getElementById("tipBox").textContent =
+"💡 " + tips[Math.floor(Math.random()*tips.length)];
+
+const m = myths[Math.floor(Math.random()*myths.length)];
+document.getElementById("mythBox").innerHTML =
+`<strong>Myth:</strong> ${m[0]}<br><strong>Fact:</strong> ${m[1]}`;
+
+const quiz = quizzes[Math.floor(Math.random()*quizzes.length)];
+document.getElementById("quizQuestion").textContent = quiz.q;
+
+const checklist = document.getElementById("checklist");
+tips.slice(0,5).forEach(t=>{
+  const li=document.createElement("li");
+  li.textContent=t;
+  checklist.appendChild(li);
+});
+
+document.getElementById("shareText").textContent =
+tips[Math.floor(Math.random()*tips.length)];
+
+/* ===== FUNCTIONS ===== */
+
+function checkQuiz(){
+  const ans=document.getElementById("quizAnswer").value.toLowerCase();
+  const res=document.getElementById("quizResult");
+  if(ans.includes(quiz.a)){
+    res.textContent="✅ Correct!";
+    res.style.color="green";
+  }else{
+    res.textContent="❌ Not safe. Try again.";
+    res.style.color="red";
+  }
+}
+
+function copyText(){
+  const text=document.getElementById("shareText").textContent;
+  navigator.clipboard.writeText(text);
+  alert("Copied: " + text);
+}
+</script>
+
+</body>
+</html>

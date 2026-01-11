@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Safety for Kids</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter","Segoe UI",Arial,sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg,#f6f9ff,#eef3fb);
+  color:#1f2a37;
+  line-height:1.6;
+}
+
+header {
+  background: linear-gradient(135deg,#ff7a18,#ffb347);
+  color:#fff;
+  padding:1.2rem;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(0,0,0,0.25);
+}
+
+h1 {
+  text-align:center;
+  font-size:2.4rem;
+  margin:2.5rem 0 1rem;
+  color:#1f3b64;
+}
+
+h2 {
+  text-align:center;
+  margin:2.5rem 0 1rem;
+  color:#1f3b64;
+}
+
+.content {
+  max-width:900px;
+  margin:auto;
+  padding:1rem;
+}
+
+.content p {
+  text-align:center;
+  color:#4b5563;
+  margin-bottom:1.8rem;
+}
+
+/* Smaller cards */
+.box {
+  background:#fff;
+  padding:1.2rem 1.4rem;
+  border-radius:14px;
+  margin:1rem 0;
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+}
+
+.tip {border-left:5px solid #f59e0b;}
+.example {border-left:5px solid #3b82f6;}
+.myth {border-left:5px solid #22c55e;}
+.quiz {border-left:5px solid #6366f1;}
+.checklist {border-left:5px solid #10b981;}
+
+.video {
+  display:flex;
+  justify-content:center;
+  margin:2rem 0;
+}
+
+iframe {
+  width:100%;
+  max-width:520px;
+  height:300px;
+  border-radius:14px;
+}
+
+button {
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  border:none;
+  padding:0.6rem 1.2rem;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:700;
+  margin-top:0.6rem;
+}
+
+.quiz input {
+  width:100%;
+  padding:0.6rem;
+  margin-top:0.5rem;
+  border-radius:8px;
+  border:1px solid #c7d2fe;
+}
+
+ul {
+  list-style:none;
+}
+
+ul li {
+  background:#f0f9ff;
+  padding:0.6rem 0.9rem;
+  border-radius:10px;
+  margin:0.5rem 0;
+  font-weight:600;
+}
+
+.home {
+  text-align:center;
+  margin:3rem 0;
+}
+
+.home a {
+  text-decoration:none;
+  font-weight:700;
+  color:#2563eb;
+}
+
+footer {
+  background:linear-gradient(135deg,#0f172a,#020617);
+  color:#cbd5e1;
+  text-align:center;
+  padding:2rem 1rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>CyberSafe – Kids</h2>
+</header>
+
+<h1>Cyber Safety for Kids 👧👦</h1>
+
+<div class="content">
+<p>The internet is fun, but staying safe is important. Let’s learn how!</p>
+
+<!-- RANDOM SAFETY TIP -->
+<div class="box tip" id="tipBox"></div>
+
+<h2>❌ Myth vs Fact</h2>
+<div class="box myth" id="mythBox"></div>
+
+<h2>🎥 Watch & Learn</h2>
+<div class="video">
+  <iframe src="C:\Users\yash\Downloads\Cybersecurity Awareness for Kids - NCAM 2021.mp4" allowfullscreen></iframe>
+</div>
+
+<h2>📝 Fun Quiz</h2>
+<div class="box quiz">
+  <p id="quizQuestion"></p>
+  <input type="text" id="quizAnswer" placeholder="Yes or No">
+  <button onclick="checkQuiz()">Submit</button>
+  <p id="quizResult" style="margin-top:0.8rem;font-weight:bold;"></p>
+</div>
+
+<h2>✅ Safety Checklist</h2>
+<div class="box checklist">
+  <ul id="checklist"></ul>
+</div>
+
+<div class="home">
+  <a href="index.html">GO TO HOME PAGE</a>
+</div>
+</div>
+
+
+
+<script>
+/* ===== DATA (20+ EACH) ===== */
+
+const tips = [
+"Ask parents before using new apps.",
+"Never share your password.",
+"Do not talk to strangers online.",
+"Close scary or weird videos.",
+"Use nicknames instead of real names.",
+"Log out after gaming.",
+"Ignore pop-ups.",
+"Tell an adult if unsure.",
+"Only download safe apps.",
+"Be kind online.",
+"Never share your address.",
+"Never share school details.",
+"Don’t accept friend requests from strangers.",
+"Keep camera covered when unused.",
+"Use strong passwords.",
+"Report bullying.",
+"Don’t click free prize links.",
+"Use kid-safe websites.",
+"Stop playing if uncomfortable.",
+"Think before you click."
+];
+
+const myths = [
+["Everyone online is friendly.","Some people pretend. Be careful."],
+["I’ll get in trouble for bad content.","Adults help, not punish."],
+["Games can’t be dangerous.","Chats can be risky."],
+["Sharing pics is okay.","Only with family."],
+["Strangers are friends.","They are not."],
+["Free gifts are real.","Mostly scams."],
+["Passwords are secrets.","Even from friends."],
+["Pop-ups are safe.","They can harm devices."],
+["Online friends are real.","Some are fake."],
+["Adults won’t understand.","They will help."],
+["Scary videos are normal.","Tell someone."],
+["Anyone can be trusted.","Not true."],
+["All websites are safe.","Some are not."],
+["I must reply to messages.","You don’t."],
+["Games don’t track info.","Some do."],
+["Only adults get hacked.","Kids too."],
+["Sharing is caring.","Not online."],
+["Cyberbullying is a joke.","It hurts."],
+["You must finish chats.","You can leave."],
+["Internet never lies.","It can."]
+];
+
+const quizzes = [
+{q:"A stranger asks for your address. Should you tell them?",a:"no"},
+{q:"Is it okay to share passwords?",a:"no"},
+{q:"Should you tell parents about scary content?",a:"yes"},
+{q:"Can strangers be trusted online?",a:"no"},
+{q:"Is it safe to click free prize links?",a:"no"},
+{q:"Should you ask before installing apps?",a:"yes"},
+{q:"Can you log out after games?",a:"yes"},
+{q:"Is bullying okay online?",a:"no"},
+{q:"Should you talk to unknown players?",a:"no"},
+{q:"Is real name safe to share?",a:"no"},
+{q:"Should you stop if uncomfortable?",a:"yes"},
+{q:"Is HTTPS safer?",a:"yes"},
+{q:"Can pop-ups be ignored?",a:"yes"},
+{q:"Is webcam privacy important?",a:"yes"},
+{q:"Are all videos kid-safe?",a:"no"},
+{q:"Should you use nicknames?",a:"yes"},
+{q:"Can you report bad behavior?",a:"yes"},
+{q:"Should passwords be secret?",a:"yes"},
+{q:"Is kindness important online?",a:"yes"},
+{q:"Is clicking everything safe?",a:"no"}
+];
+
+/* ===== RANDOMIZE ===== */
+
+const tipBox = document.getElementById("tipBox");
+tipBox.textContent = "💡 " + tips[Math.floor(Math.random()*tips.length)];
+
+const mythBox = document.getElementById("mythBox");
+const m = myths[Math.floor(Math.random()*myths.length)];
+mythBox.innerHTML = `<strong>Myth:</strong> ${m[0]}<br><strong>Fact:</strong> ${m[1]}`;
+
+const quiz = quizzes[Math.floor(Math.random()*quizzes.length)];
+document.getElementById("quizQuestion").textContent = quiz.q;
+
+const checklist = document.getElementById("checklist");
+tips.slice(0,5).forEach(t=>{
+  const li=document.createElement("li");
+  li.textContent=t;
+  checklist.appendChild(li);
+});
+
+/* ===== QUIZ CHECK ===== */
+function checkQuiz(){
+  const ans=document.getElementById("quizAnswer").value.toLowerCase();
+  const res=document.getElementById("quizResult");
+  if(ans===quiz.a){
+    res.textContent="✅ Correct!";
+    res.style.color="green";
+  } else {
+    res.textContent="❌ Try again!";
+    res.style.color="red";
+  }
+}
+</script>
+
+</body>
+</html>

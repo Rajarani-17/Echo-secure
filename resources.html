@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Safety Resources</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      margin: 0; padding: 0;
+    }
+    header {
+      background: #004080;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    h1 { margin: 0; }
+    .container {
+      width: 90%;
+      margin: auto;
+      padding: 20px 0;
+    }
+    .section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    ul { list-style: none; padding: 0; }
+    ul li { margin: 8px 0; }
+    a {
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+    }
+    a:hover { text-decoration: underline; }
+    .download-btn {
+      display: inline-block;
+      background: #004080;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+    .download-btn:hover { background: #003060; }
+    .search-box {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+      .container .home{
+         display: flex;
+  justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Cyber Safety Resources</h1>
+</header>
+
+<div class="container">
+
+  <!-- Search -->
+  <input type="text" id="searchInput" class="search-box" placeholder="Search resources..." onkeyup="filterResources()">
+
+  <!-- Guides -->
+  <div class="section" data-category="guide">
+    <h2>📝 Downloadable Guides</h2>
+    <a href="./67dca404eba39807fc1c60da.pdf" class="download-btn">Kids Guide</a><br>
+    <a href="./Cybersecurity Best Practices for Teens.pdf" class="download-btn">Teens Guide</a><br>
+    <a href="./personal-cyber-security-first-steps-guide.pdf" class="download-btn">Adults Guide</a><br>
+    <a href="./Cyber_Security_Tips_Seniors_print.pdf" class="download-btn">Seniors Guide</a>
+  </div>
+
+  <!-- Trusted Websites -->
+  <div class="section" data-category="website">
+    <h2>🔗 Trusted Websites</h2>
+    <ul>
+      <li><a href="https://www.cert-in.org.in" target="_blank">CERT-In (India)</a></li>
+      <li><a href="https://www.consumer.ftc.gov/features/feature-0038-onguardonline" target="_blank">FTC Online Safety</a></li>
+    </ul>
+  </div>
+
+  <!-- Tools -->
+
+  <!-- Videos -->
+  <div class="section" data-category="video">
+    <h2>🎥 Videos & Tutorials</h2>
+    <ul>
+      <li><a href="https://youtu.be/XBkzBrXlle0?si=IakmpMSknndFQPw7" target="_blank">What is Phishing?</a></li>
+      <li><a href="https://youtu.be/3f0u-vw58A0?si=0V2Zc-a2sc5L6BeK" target="_blank">Strong Password Tips</a></li>
+      <li><a href="https://youtu.be/vtfMzmkYp9E?si=c2aYjla0g6x5241h" target="_blank">Cyberbullying Awareness</a></li>
+    </ul>
+  </div>
+
+  <!-- Support -->
+  <div class="section" data-category="support">
+    <h2>☎️ Helplines & Support</h2>
+    <p>If you face cybercrime or online fraud, contact:</p>
+    <ul>
+      <li><strong>India Helpline:</strong> 1930</li>
+      <li><strong>Email:</strong> support@cybercrime.gov.in</li>
+      <li><strong>Global:</strong> Reach your local law enforcement authority</li>
+    </ul>
+  </div>
+  <div class="home">
+     <a href="index.html">GO TO HOME PAGE</a>
+  </div>
+</div>
+
+<script>
+function filterResources() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const sections = document.querySelectorAll('.section');
+
+  sections.forEach(section => {
+    if (section.innerText.toLowerCase().includes(input)) {
+      section.style.display = '';
+    } else {
+      section.style.display = 'none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

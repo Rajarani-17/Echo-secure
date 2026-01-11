@@ -1,0 +1,303 @@
+:root {
+  --primary: #004080;
+  --accent: #2d89ef;
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===============================
+   HEADER
+   =============================== */
+header {
+  background: var(--primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* ===============================
+   HERO
+   =============================== */
+.hero {
+  background: #eaf4ff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.hero h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ===============================
+   GENERAL SECTIONS
+   =============================== */
+section {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+}
+
+/* ===============================
+   CARDS
+   =============================== */
+.card,
+.tip,
+.example,
+.myth,
+.quiz,
+.checklist,
+.share,
+.resources {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow);
+}
+
+/* Accent borders */
+.tip {
+  border-left: 4px solid var(--accent);
+}
+
+.example {
+  border-left: 4px solid #0ea5e9;
+}
+
+.myth {
+  border-left: 4px solid #16a34a;
+}
+
+.warning {
+  border-left: 4px solid #e11d48;
+}
+
+.safe {
+  border-left: 4px solid #16a34a;
+}
+
+.unsafe {
+  border-left: 4px solid #dc2626;
+}
+
+/* ===============================
+   LISTS
+   =============================== */
+ul {
+  padding-left: 1.2rem;
+}
+
+ul.check {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.check li {
+  background: #f1f5f9;
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-bottom: 0.4rem;
+}
+
+/* ===============================
+   BUTTONS
+   =============================== */
+button,
+.button,
+.download-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+button:hover,
+.button:hover,
+.download-btn:hover {
+  background: #1b5fa7;
+}
+
+/* ===============================
+   INPUTS
+   =============================== */
+input,
+.search-box {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+}
+
+/* ===============================
+   VIDEO
+   =============================== */
+.video {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+iframe {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border-radius: 8px;
+}
+
+/* ===============================
+   FOOTER
+   =============================== */
+footer {
+  background: var(--primary);
+  color: #e5e7eb;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* ===============================
+   HOME LINK
+   =============================== */
+.home {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.home a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home a:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   QUIZ CENTERING (FIX)
+   =============================== */
+.hub {
+  max-width: 520px;
+  margin: 3rem auto;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+/* Keep answers left-aligned */
+.options {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.option-btn {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  margin: 0.4rem 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.option-btn:hover {
+  background: #1b5fa7;
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hub {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
